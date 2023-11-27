@@ -1,15 +1,17 @@
+require("dotenv").config();
 const MongoClient = require('mongodb').MongoClient;
-const url = process.env.MONGO_URI || 'mongodb://localhost:27017';
-let db            = null;
+//const uri = process.env.react_app_MONGO_URI || 'mongodb://localhost:27017';
+const uri="mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority"
+//const port=process.env.MONGO_PORT
+let db = null;
  
 // connect to mongo
-MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
+MongoClient.connect(uri, {useUnifiedTopology: true}, function(err, client) {
     console.log("Connected successfully to db server");
 
     // connect to myproject database
-    db = client.db('myproject');
+    db = client.db('capstonecluster1');
 });
-
 
 // create user account
 function create(name, email, password){
@@ -59,17 +61,6 @@ function find(email){
             .toArray(function(err, docs) {
                 err ? reject(err) : resolve(docs);
         });    
-    })
-}
-
-// find user account
-function findOne(email){
-    return new Promise((resolve, reject) => {    
-        const customers = db
-            .collection('users')
-            .findOne({email: email})
-            .then((doc) => resolve(doc))
-            .catch((err) => reject(err));    
     })
 }
 
@@ -155,4 +146,4 @@ function all(){
 };
 
 
-module.exports = {create, findOne, find, update, adjust, all};
+module.exports = {create, find, login, update, balance, adjust, all};

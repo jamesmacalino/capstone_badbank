@@ -3,7 +3,7 @@ import Card from './context';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
-export function Home({ isLoggedIn }) {
+export function Home({ isLoggedIn, onLogout }) {
   return (
     <Card
       bgcolor="warning"
@@ -15,11 +15,17 @@ export function Home({ isLoggedIn }) {
         <div style={{ Width: "30px", margin: "auto" }}>
           <img src="./badbankimage.jpg" className="img-fluid" alt="Responsive image" width="700px" height="500px" />
           <br />
-          <button type="button" className="btn btn-light button-spacing">
-            <Link className="nav-link" to="/login/">
-              Login
-            </Link>
-          </button>
+          {/* <div className="btn-group" role="group" aria-label="Basic Example">
+            {isLoggedIn ?
+              (<button type="button" className="btn btn-dark" width="100px" height="50px" align="right" onClick={onLogout}>Logout</button>) :
+              (<button type="button" className="btn btn-light" width="100px" height="50px" align="left">
+                <Link className="nav-link" to="/login/">
+                  Login
+                </Link>
+              </button>)
+            }
+          </div> */}
+
         </div>
       )}
     />

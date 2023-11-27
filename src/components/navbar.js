@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-export function NavBar() {
+export function NavBar({ user, isLoggedIn, signOut }) {
   const location = useLocation();
   return (
     <>
@@ -26,6 +26,13 @@ export function NavBar() {
             <li className="nav-item">
               <Link className={`nav-link ${location.pathname === '/alldata/' ? 'active' : ''}`} to="/alldata/">AllData</Link>
             </li>
+            <div className="text-light"> <p className="nav-link px-3 m-0">{user.name}</p></div>
+            <div className="nav navbar-nav navbar-right">
+              {!isLoggedIn ? (
+                <Link className={`btn btn-warning navbar-btn ${location.pathname === "/login" ? "active" : ''}`} aria-current="page" to="/login" data-toggle="tooltip" title="Click here to login to your account.">Login</Link>
+              ) : (
+                <button type="button" className="btn btn-warning navbar-btn" onClick={() => signOut()}>Log Out</button>)
+              }</div>
           </ul>
         </div>
       </nav>

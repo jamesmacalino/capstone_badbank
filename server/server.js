@@ -1,8 +1,10 @@
 const express = require('express');
+require("dotenv").config();
 const app = express();
 const cors = require('cors');
 const dal = require('./dal.js');
 const e = require('express');
+const PORT = process.env.PORT || 3500
 
 // used to serve static files from public directory
 app.use(express.json());
