@@ -1,10 +1,10 @@
 const express = require('express');
-require("dotenv").config({ path:'../.env' });
+require("dotenv").config({ path: '../.env' });
 const app = express();
 const cors = require('cors');
 const dal = require('./dal.js');
 const e = require('express');
-const PORT = process.env.REACT_APP_PORT || 3500
+const PORT = process.env.PORT || 3500
 
 //CRUD
 console.log("~~~~CRUD~~~~~~")
@@ -58,19 +58,19 @@ app.get('/account/login/:email/:password', function (req, res) {
 
     dal.find(req.params.email).then((user) => {
 
-            // if user exists, check password
-            if (user.length > 0) {
-                if (user[0].password === req.params.password) {
-                    res.send(user[0]);
-                }
-                else {
-                    res.send('Login failed: wrong password');
-                }
+        // if user exists, check password
+        if (user.length > 0) {
+            if (user[0].password === req.params.password) {
+                res.send(user[0]);
             }
             else {
-                res.send('Login failed: user not found');
+                res.send('Login failed: wrong password');
             }
-        });
+        }
+        else {
+            res.send('Login failed: user not found');
+        }
+    });
 
 });
 
@@ -134,6 +134,6 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-const port = process.env.port || 3500;
+const port = process.env.PORT || 3500;
 app.listen(port);
 console.log('Running on port: ' + port);
