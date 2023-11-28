@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
 const uri = process.env.REACT_APP_MONGO_URI || 'mongodb://localhost:27017';
 let db = null;
 
@@ -6,8 +6,12 @@ let db = null;
 MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
     console.log("Connected successfully to db server");
 
-    // connect to myproject database
-    db = client.db('capstonecluster1');
+    try {
+        // connect to atlas capstonecluster1 database
+        db = client.db('capstonecluster1');
+    } catch (err) {
+        console.error('Error connecting to mongodb:', err);
+    }
 });
 
 // create user account
