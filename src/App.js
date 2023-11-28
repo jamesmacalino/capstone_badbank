@@ -30,7 +30,7 @@ const auth = getAuth();
 const nullUser = { balance: 0 };
 
 function App() {
-    const baseUrl = 'http://localhost:3500';
+    const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
 
     const [status, setStatus] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);

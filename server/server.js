@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 const dal = require('./dal.js');
 const e = require('express');
-const PORT = process.env.PORT || 3500
+const PORT = process.env.REACT_APP_PORT || 3500
 
 // used to serve static files from public directory
 app.use(express.json());
@@ -122,6 +122,6 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-const port = 3500;
+const port = process.env.REACT_APP_PORT || 3500;
 app.listen(port);
 console.log('Running on port: ' + port);
