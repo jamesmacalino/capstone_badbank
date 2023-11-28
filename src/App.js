@@ -41,6 +41,10 @@ function App() {
     let initializeUser = async (email, password) => {
         try {
             const res = await fetch(`${baseUrl}/account/login/${email}/${password}`);
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            
             const tempUser = await res.json();
             console.log("tempUser", tempUser);
             setUser(tempUser);
@@ -54,6 +58,9 @@ function App() {
     let adjustBalance = (amount) => {
         fetch(`${baseUrl}/account/adjust/${user.email}/${Number(amount)}`)
             .then(async (res) => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
                 const newBalance = await res.json();
                 setUser({ ...user, balance: newBalance })
                 if (amount === null) {
@@ -62,7 +69,6 @@ function App() {
             })
             .catch((err) => {
                 console.log(err);
-
             })
         if (user.balance != typeof Number) {
             setStatus('Balance error, Please contact support')
