@@ -1,6 +1,5 @@
-require("dotenv").config();
 const MongoClient = require('mongodb').MongoClient;
-const uri = process.env.REACT_APP_URI || 'mongodb://localhost:27017';
+const uri = process.env.REACT_APP_MONGO_URI || 'mongodb://localhost:27017';
 //const uri = process.env.REACT_APP_URI;
 //const uri="mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority"
 //const port=process.env.REACT_APP_PORT
