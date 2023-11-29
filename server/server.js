@@ -24,6 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
 
+
+
 // app.use(cors({
 //     origin: 'http://localhost:3000',
 //     methods: 'GET,POST,PUT,DELETE',
@@ -134,6 +136,7 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-const port = process.env.PORT || 3500;
-app.listen(port);
-console.log('Running on port: ' + port);
+//const port = process.env.PORT || 3500;
+//console.log('Running on port: ' + port);
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
