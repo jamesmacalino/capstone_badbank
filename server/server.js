@@ -4,7 +4,6 @@ const app = express();
 const cors = require('cors');
 const dal = require('./dal.js');
 const e = require('express');
-const PORT = process.env.PORT || 3500
 
 //CRUD
 console.log("~~~~CRUD~~~~~~")
