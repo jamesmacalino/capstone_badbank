@@ -6,7 +6,7 @@ export function AllData() {
     const [data, setData] = React.useState('');
     // const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
     //const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
-    const baseUrl = badbank-jmaca-caff78e9c188.herokuapp.com || 'http://localhost:3500';
+    const baseUrl = badbank-jmaca-caff78e9c188.herokuapp.com;
 
     function fetchData() {
         fetch(`${baseUrl}/account/all`)
