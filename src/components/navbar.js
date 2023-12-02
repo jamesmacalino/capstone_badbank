@@ -15,13 +15,13 @@ export function NavBar({ user, isLoggedIn, signOut }) {
               <Link className={`nav-link ${location.pathname === '/CreateAccount/' ? 'active' : ''}`} to="/CreateAccount/">Create Account</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${location.pathname == '/balance/' ? 'active' : ''}`} to="/balance/">Account Balance</Link>
+              <Link className={`nav-link ${location.pathname === '/balance/' ? 'active' : ''}`} to="/balance/">Account Balance</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${location.pathname == '/deposit/' ? 'active' : ''}`} to="/deposit/">Deposit</Link>
+              <Link className={`nav-link ${location.pathname === '/deposit/' ? 'active' : ''}`} to="/deposit/">Deposit</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link ${location.pathname == '/withdraw' ? 'active' : ''}`} to="/withdraw/">Withdraw</Link>
+              <Link className={`nav-link ${location.pathname === '/withdraw' ? 'active' : ''}`} to="/withdraw/">Withdraw</Link>
             </li>
             <li className="nav-item">
               <Link className={`nav-link ${location.pathname === '/alldata/' ? 'active' : ''}`} to="/alldata/">AllData</Link>
