@@ -1,26 +1,33 @@
 import React from "react";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "./context";
 
 export function AllData() {
-    const [data, setData] = React.useState('');
+    const [data , setData] = useState('');
     // const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
     const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
     //const baseUrl = badbank-jmaca-caff78e9c188.herokuapp.com;
 
-    function fetchData() {
-        fetch(`${baseUrl}/account/all`)
-            .then(async (res) => {
-
-                const data = await res.json();
-                return setData(data);
-            })
-    }
-
     useEffect(() => {
-        if (data === '') { fetchData() }
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`${baseUrl}/account/all`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const jsonData = await response.json();
+                setData(jsonData);
+            } catch (error) {
+                console.error('Failed to fetch data:', error);
+                // Handle error appropriately
+            }
+        };
 
-    }, [data]);
+        if (data === '') {
+            fetchData();
+        }
+
+    }, [data, baseUrl]); // Only re-run the effect if data changes
 
     if (data !== '')
         return (
