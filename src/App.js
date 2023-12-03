@@ -22,7 +22,8 @@ const firebaseConfig = {
     storageBucket: "mybadbank-69f4e.appspot.com",
     messagingSenderId: "206687617212",
     appId: "1:206687617212:web:9d4fdc81ece15e481050b9"
-};
+  };
+  
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
@@ -30,7 +31,7 @@ const auth = getAuth();
 const nullUser = { balance: 0 };
 
 function App() {
-    const baseUrl = process.env.REACT_APP_PORT;
+    const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
 
     const [status, setStatus] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);

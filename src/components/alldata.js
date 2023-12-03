@@ -5,11 +5,9 @@ import { Card } from "./context";
 export function AllData() {
     const [data , setData] = useState('');
     // const baseUrl = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3500';
-    //const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
+    const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
 
-    const baseUrl = process.env.NODE_ENV === 'production' ? 'https://obscure-journey-92886-10494df772df.herokuapp.com/' : 'http://localhost:3500/';
-
-    //const baseUrl = badbank-jmaca-caff78e9c188.herokuapp.com;
+   // const baseUrl = process.env.NODE_ENV === 'production' ? 'https://obscure-journey-92886-10494df772df.herokuapp.com/' : 'http://localhost:3500/';
 
     useEffect(() => {
         const fetchData = async () => {
