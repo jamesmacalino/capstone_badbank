@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import {Card} from './context';
 
-const baseUrl = process.env.REACT_APP_PORT || 'http://localhost:3500';
+const baseUrl = process.env.REACT_APP_PORT;
 
 export function CreateAccount({ initializeUser, createWithFirebase }) {
   const [show, setShow] = useState(true);
