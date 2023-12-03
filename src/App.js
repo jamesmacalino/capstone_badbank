@@ -1,7 +1,7 @@
 import { Route, HashRouter, Routes, Navigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
-import { useState, useEffect, useCallback } from 'react';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { useState, useCallback } from 'react';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { NavBar } from "./components/navbar";

@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './context';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import '../App.css';
 
 export function Home({ isLoggedIn, onLogout }) {
