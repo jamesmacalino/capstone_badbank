@@ -8,7 +8,7 @@ MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
 
     try {
         // connect to atlas capstonecluster1 database
-        db = client.db('capstonecluster1');
+        db = client.db('capstonecluster1.users');
     } catch (err) {
         console.error('Error connecting to mongodb:', err);
     }
