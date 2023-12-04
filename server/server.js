@@ -8,14 +8,14 @@ const e = require('express');
 
 //CRUD
 console.log("~~~~CRUD~~~~~~")
-console.log(process.env.REACT_APP_MONGO_URI);
+console.log(process.env.MONGO_URI);
 console.log("~~~~~~~~~~")
 
 //path info
 console.log("~~~~dirname~~~~~~~~")
 console.log(__dirname)
 console.log("~~~~PORT~~~~~~~~")
-console.log(process.env.REACT_APP_PORT);
+console.log(process.env.PORT);
 console.log("~~~~~~~~~~~~")
 
 // used to serve static files from public directory
@@ -23,14 +23,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors());
-
-
-
-// app.use(cors({
-//     origin: 'http://localhost:3000',
-//     methods: 'GET,POST,PUT,DELETE',
-//     credentials: true,
-// }));
 
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
@@ -138,5 +130,5 @@ app.get('/account/all', function (req, res) {
 
 //const port = process.env.REACT_APP_PORT || 'http://localhost:3500';
 //console.log('Running on port: ' + port);
-const PORT = process.env.REACT_APP_PORT || 3500;
+const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
