@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "heroku-postbuild": "cd /server && node server.js",
+    "heroku-postbuild": "cd server && node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
