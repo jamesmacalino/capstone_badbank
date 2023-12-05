@@ -8,7 +8,7 @@ const e = require('express');
 
 //CRUD
 console.log("~~~~CRUD~~~~~~")
-console.log(process.env.MONGO_URI);
+console.log(process.env.REACT_APP_MONGO_URL);
 console.log("~~~~~~~~~~")
 
 //path info
