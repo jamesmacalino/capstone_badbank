@@ -36,7 +36,7 @@ export function Login({ logIn }) {
                         type="input"
                         className="form-control"
                         id="email"
-                        autocomplete="email"
+                        autoComplete="email"
                         placeholder="Enter Email"
                         value={email}
                         onChange={e => { setEmail(e.currentTarget.value) }}
