@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const uri = process.env.REACT_APP_MONGO_URI || 'mongodb://localhost:27017';
+const uri = process.env.PORT || 'mongodb://localhost:27017';
 //const uri = "mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority || 'mongodb://localhost:27017'";
 let db = null;
 
