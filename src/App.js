@@ -31,7 +31,7 @@ const auth = getAuth();
 const nullUser = { balance: 0 };
 
 function App() {
-    const baseUrl = process.env.PORT || 'http://localhost:3500';
+    const baseUrl = process.env.PORT;
 
     const [status, setStatus] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
