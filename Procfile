@@ -1,2 +1,2 @@
-web: cd /app/server && node server.js && npm start
-worker:  npm start
+web: node /app/server/server.js && npm start
+worker:  Heroku
