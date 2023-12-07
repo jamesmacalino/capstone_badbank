@@ -54,6 +54,5 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "author": "James Macalino",
-  "homepage": "https://hrku-cap-badbank-24d2d96dbd11.herokuapp.com",
   "license": "MIT"
 }
