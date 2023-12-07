@@ -38,7 +38,8 @@ async function login(email, password) {
 
         const collection = db.collection('users');
         const docs = await collection.find().toArray();
-        const user = docs.find((user) => user.email == email);
+        const user = await collection.findOne({ email: email });
+        // const user = docs.find((user) => user.email == email);
         if (!user) {
             return false;
         }
