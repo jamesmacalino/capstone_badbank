@@ -4,17 +4,17 @@ const uri = process.env.REACT_APP_MONGO_URL || 'mongodb://localhost:27017';
 //const uri = "mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority || 'mongodb://localhost:27017'";
 let db = null;
 
-// connect to mongo
-MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
-    console.log("Connected successfully to db server");
+// // connect to mongo
+// MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
+//     console.log("Connected successfully to db server");
 
-    try {
-        // connect to atlas capstonecluster1 database
-        db = client.db('capstonecluster1');
-    } catch (err) {
-        console.error('Error connecting to mongodb:', err);
-    }
-});
+//     try {
+//         // connect to atlas capstonecluster1 database
+//         db = client.db('capstonecluster1');
+//     } catch (err) {
+//         console.error('Error connecting to mongodb:', err);
+//     }
+// });
 
 // create user account
 function create(name, email, password) {
