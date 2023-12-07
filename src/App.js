@@ -22,8 +22,8 @@ const firebaseConfig = {
     storageBucket: "mybadbank-69f4e.appspot.com",
     messagingSenderId: "206687617212",
     appId: "1:206687617212:web:9d4fdc81ece15e481050b9"
-  };
-  
+};
+
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
@@ -45,9 +45,14 @@ function App() {
             if (!res.ok) {
                 throw new Error(`HTTP error! Status: ${res.status}`);
             }
-            
+
             const tempUser = await res.json();
             console.log("tempUser", tempUser);
+
+            // Add more logging to check the structure of tempUser
+            console.log("typeof tempUser", typeof tempUser);
+            console.log("tempUser instanceof Object", tempUser instanceof Object);
+
             setUser(tempUser);
             setLoggedIn(true);
         } catch (err) {

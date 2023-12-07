@@ -48,24 +48,40 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
 
 
 // login user 
+// app.get('/account/login/:email/:password', function (req, res) {
+
+//     dal.find(req.params.email).then((user) => {
+
+//         // if user exists, check password
+//         if (user.length > 0) {
+//             if (user[0].password === req.params.password) {
+//                 res.send(user[0]);
+//             }
+//             else {
+//                 res.send('Login failed: wrong password');
+//             }
+//         }
+//         else {
+//             res.send('Login failed: user not found');
+//         }
+//     });
+
+// });
+
+// login user 
 app.get('/account/login/:email/:password', function (req, res) {
-
     dal.find(req.params.email).then((user) => {
-
         // if user exists, check password
         if (user.length > 0) {
             if (user[0].password === req.params.password) {
-                res.send(user[0]);
+                res.json(user[0]); // send user as JSON
+            } else {
+                res.status(401).json({ error: 'Login failed: wrong password' });
             }
-            else {
-                res.send('Login failed: wrong password');
-            }
-        }
-        else {
-            res.send('Login failed: user not found');
+        } else {
+            res.status(401).json({ error: 'Login failed: user not found' });
         }
     });
-
 });
 
 // deposit to a user account
