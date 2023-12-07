@@ -2,8 +2,8 @@
   "name": "capstone_badbank",
   "version": "0.1.0",
   "engines": {
-    "npm": "16.20.1",
-    "node": "8.19.4"
+    "node": "16.20.1",
+    "npm": "8.19.4"
   },
   "private": true,
   "dependencies": {
