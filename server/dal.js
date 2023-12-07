@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const { getDB } = require('./db');
 const uri = process.env.REACT_APP_MONGO_URL || 'mongodb://localhost:27017';
 //const uri = "mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority || 'mongodb://localhost:27017'";
 let db = null;
@@ -25,6 +26,12 @@ function create(name, email, password) {
         });
     })
 }
+
+async function connectToMongo() {
+    db = await getDB();
+}
+connectToMongo(); // Establish the initial connection when the module is imported
+
 
 // Login a user
 async function login(email, password) {
