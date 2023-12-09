@@ -41,27 +41,52 @@ function App() {
     // balance is initialized temporarily to prevent user.balance from breaking routes using it.
     const [user, setUser] = useState(nullUser);
 
-    let initializeUser = async (email, password) => {
-        try {
-            const res = await fetch(`${baseUrl}/account/login/${email}/${password}`);
-            if (!res.ok) {
-                throw new Error(`HTTP error! Status: ${res.status}`);
-            }
+    // let initializeUser = async (email, password) => {
+    //     try {
+    //         const res = await fetch(`${baseUrl}/account/login/${email}/${password}`);
+    //         if (!res.ok) {
+    //             throw new Error(`HTTP error! Status: ${res.status}`);
+    //         }
 
-            const tempUser = await res.json();
-            console.log("tempUser", tempUser);
+    //         const tempUser = await res.json();
+    //         console.log("tempUser", tempUser);
 
-            // Add more logging to check the structure of tempUser
-            console.log("typeof tempUser", typeof tempUser);
-            console.log("tempUser instanceof Object", tempUser instanceof Object);
+    //         // Add more logging to check the structure of tempUser
+    //         console.log("typeof tempUser", typeof tempUser);
+    //         console.log("tempUser instanceof Object", tempUser instanceof Object);
 
-            setUser(tempUser);
-            setLoggedIn(true);
-        } catch (err) {
-            console.log(err);
-            return "login failed";
-        }
-    }
+    //         setUser(tempUser);
+    //         setLoggedIn(true);
+    //     } catch (err) {
+    //         console.log(err);
+    //         return "login failed";
+    //     }
+    // }
+
+    let initializeUser = (email, password) => {
+        return fetch(`${baseUrl}/account/login/${email}/${password}`)
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+                return res.json();
+            })
+            .then((tempUser) => {
+                console.log("tempUser", tempUser);
+    
+                // Add more logging to check the structure of tempUser
+                console.log("typeof tempUser", typeof tempUser);
+                console.log("tempUser instanceof Object", tempUser instanceof Object);
+    
+                setUser(tempUser);
+                setLoggedIn(true);
+            })
+            .catch((err) => {
+                console.log(err);
+                return "login failed";
+            });
+    };
+    
 
     let adjustBalance = (amount) => {
         fetch(`${baseUrl}/account/adjust/${user.email}/${Number(amount)}`)
