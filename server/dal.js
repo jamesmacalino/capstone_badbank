@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const { getDB } = require('./db');
-const uri = process.env.REACT_APP_MONGO_URL || 'mongodb://localhost:27017';
-//const uri = "mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority || 'mongodb://localhost:27017'";
+//const uri = process.env.REACT_APP_MONGO_URL || 'mongodb://localhost:27017';
+const uri = "mongodb+srv://capstoneadmin:xttSOJU77BNVE8k2@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority || 'mongodb://localhost:27017'";
 let db = null;
 
 // // connect to mongo
