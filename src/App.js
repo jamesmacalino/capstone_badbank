@@ -47,7 +47,7 @@ function App() {
                 if (!res.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);
                 }
-                return res.text();
+                return res.json();
             })
             .then((tempUser) => {
                 console.log("tempUser", tempUser);
