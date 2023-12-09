@@ -18,6 +18,14 @@ console.log("~~~~PORT~~~~~~~~")
 console.log(process.env.PORT);
 console.log("~~~~~~~~~~~~")
 
+//search for a build of react app if production
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    });
+}
+
 // used to serve static files from public directory
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
