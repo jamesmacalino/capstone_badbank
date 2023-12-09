@@ -155,4 +155,4 @@ app.get('/account/all', function (req, res) {
 //const port = process.env.REACT_APP_PORT || 'http://localhost:3500';
 //console.log('Running on port: ' + port);
 const PORT = process.env.PORT || 3500;
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+//app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
