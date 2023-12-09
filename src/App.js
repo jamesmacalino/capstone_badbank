@@ -65,11 +65,15 @@ function App() {
 
     let initializeUser = (email, password) => {
         return fetch(`${baseUrl}/account/login/${email}/${password}`)
+            // .then((res) => {
+            //     if (!res.ok) {
+            //         throw new Error(`HTTP error! Status: ${res.status}`);
+            //     }
+            //     return res.json();
+            // })
             .then((res) => {
-                if (!res.ok) {
-                    throw new Error(`HTTP error! Status: ${res.status}`);
-                }
-                return res.text();
+                console.log("Full response:", res);
+                return res.json();
             })
             .then((tempUser) => {
                 console.log("tempUser", tempUser);
