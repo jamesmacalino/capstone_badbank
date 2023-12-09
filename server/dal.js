@@ -2,19 +2,18 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const { getDB } = require('./db');
 const uri = process.env.REACT_APP_MONGO_URL || 'mongodb://localhost:27017';
 //const uri = "mongodb+srv://dbadmin:SSAthAb4eCd6QeBN@capstonecluster1.qvldmd7.mongodb.net/?retryWrites=true&w=majority";
-let db = null;
 
 // // connect to mongo
-MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
-    console.log("Connected successfully to db server");
+// MongoClient.connect(uri, { useUnifiedTopology: true }, function (err, client) {
+//     console.log("Connected successfully to db server");
 
-    try {
-        // connect to atlas capstonecluster1 database
-        db = client.db('capstonecluster1');
-    } catch (err) {
-        console.error('Error connecting to mongodb:', err);
-    }
-});
+//     try {
+//         // connect to atlas capstonecluster1 database
+//         db = client.db('capstonecluster1');
+//     } catch (err) {
+//         console.error('Error connecting to mongodb:', err);
+//     }
+// });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 // const client = new MongoClient(url, {
