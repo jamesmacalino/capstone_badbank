@@ -4,7 +4,7 @@ import { Card } from "./context";
 
 export function AllData() {
     const [data , setData] = useState('');
-    const baseUrl = ' ';
+    const baseUrl = process.env.PORT || 4000;
     //const baseUrl = 'https://hrku-cap-badbank-24d2d96dbd11.herokuapp.com';
 
     useEffect(() => {
