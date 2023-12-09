@@ -32,7 +32,7 @@ const nullUser = { balance: 0 };
 
 function App() {
     //const baseUrl = process.env.PORT || 4000;
-    const baseUrl = process.env.PORT;
+    const baseUrl = process.env.REACT_APP_API_BASE_URL;
     //const baseUrl = 'https://hrku-cap-badbank-24d2d96dbd11.herokuapp.com';
     ///const baseUrl = ' ';
     const [status, setStatus] = useState('');
